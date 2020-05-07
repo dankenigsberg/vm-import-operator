@@ -1,95 +1,181 @@
-v0.0.1
+v0.0.2
 
-The release contains vm-import-operator supporting oVirt as source provider.
-The operator runs in cluster-scope, watching any namespace for vmimports
-resources.
+TODO: Add description here
 
-Features & Bugs:
-* Change version format to vX.Y.Z
-* Making sure that transient resources' label values are not longer than 63 characters
-* Use operator namespace to find os config map
-* Added storage.k8s.io/storageclasses privileges to vm-import-operator cluster role
-* docs: add design documents
-* Placement policy validation against LiveMigration KubeVirt feature gate Fixes #120
-* Add permissions for templates
-* templates: use vminstance namespace to process template
-* KubeVirt config provider
-* Block import of VM without disks
-* client: connect oVirt client only when needed
-* Generated clientset
-* Use CDI v1.15.0
-* Add map disk interface method
-* Allow targetVmName to be optional
-* Set data-volume prefix to disk-
-* Rely on templates labels
-* Fixed DST change detection Africa/El_Aaiun observes DST from May 31 to April 19
-* Using vm.TimeZone.UtcOffset if available
-* Add permissions to finalizers of vm
-* Allowing only UTC-compatible VM timezones Fixes #93
-* Add permissions to watch vmi
-* Processing condition lifecycle amendment
-* MappingRulesChecking->MappingRulesVerified
-* Validating->Valid status condition
-* Use suffixes in memory and disk size
-* Allowing user to force default storage class
-* Stopping oVirt VM if cached VM status is not 'down'
-* Use disk resource mappings in disk mapping Fixes #80
-* Set VM as owner of DV
-* Ignore missing storage resource mapping
-* Gracefully re-queueing on validation failure. Fixes #62
-* Honoring cluster_default bios type #57
-* Add watching of VM and DVs
-* templates: make template handling provider agnostic
-* Mapping network frontend
-* DV secret and config map management refactoring
-* Use the retrieved template name in vm label
-* Preserve template labels
-* Set namespace for new VMs
-* Add labels to VM spec about the template
-* Add OS mapping
-* Using common templates
-* Config maps manager
-* Secrets manager package
-* Removing data volume owner references
-* After success method
-* VM status validation Allowing only 'up' or 'down'
-* Add DiskMappings for specific disk mappings
-* Nic mappings
-* Adding vendor
-* Map VM attributes
-* VM validators refactoring
-* Resource mappings validators refactoring
-* Add mapper module
-* Condition management package
-* Normalize VM name
-* Retrieval and merging of resource mappings
-* Make external resource mapping optional
-* Validating import CR in the reconciliation loop
-* Completing 'Validating' condition successfuly when necessary
-* Storage mapping validation
-* Refactor Reconcile method
-* Network mapping validator
-* Excpect decoded CA Certificate in ovirt-secret
-* Validation rules fixes
-* Create methods to ensure CM/Secret existence
-* Improve condition to check VM existence
-* Cluster is optional if VM ID provided
-* Support CACert in base64 format
-* Update ovirt secret example
-* Using proper condition for validation status reporting
-* oVirt VM validation
-* Add ResourceMapping CRD
-* Rich oVirt client
-* VM rules
-* Storage rules
-* Allow specifying target VM name
-* NIC validation
-* Initial reconcile implementation
-* Admission hook skeleton
-* Update VMImport custom resource
-* Rename organization to kubevirt
-* Change version to v1alpha1
+
+TODO: keep at every category the
+      commits that make sense
+
+Features:
+* Merge pull request #188 from pkliczewski/master
+* add vmimportconfig CRD to generator
+* Merge pull request #186 from masayag/build_operator
+* Merge pull request #187 from machacekondra/renamek8stest
+* Rename kubevirtci cluster as per latest changes
+* Build operator by 'make docker-build'
+* Merge pull request #185 from masayag/remove_manifests
+* Remove manifests for un-released version
+* Merge pull request #182 from jakub-dzon/func-tests-docs
+* Functional testing documentation
+* Merge pull request #177 from masayag/csv_generator
+* Merge pull request #181 from machacekondra/kubevirtci
+* Add CSV Generator
+* Merge pull request #179 from jakub-dzon/issue-176
+* Use master of kubevirtci repo for tests
+* Merge pull request #178 from machacekondra/installimageio
+* Adding owner reference to temporary secret and config map. Added functional test for import cancellation. Fixes #176
+* Install fakeovirt and imageio during test
+* Merge pull request #159 from machacekondra/fixtest
+* Use kubevirtci project for tests
+* Merge pull request #175 from jakub-dzon/issue-160
+* e2e check for the change
+* Adding tablet input device when VNC is enabled
+* Merge pull request #170 from jakub-dzon/e2e-vm-with-net
+* Merge pull request #174 from jakub-dzon/extract-os-finder
+* Extracted OS Finder In preparations for fixing #160
+* Updated fakeovirt image
+* Merge pull request #172 from masayag/use_vnic_profiles_src_map
+* Use Vnic Profile as source mapping
+* Merge pull request #171 from masayag/use_vnic_profile_id
+* Use vNIC Profile as source network mappings for oVirt
+* Merge pull request #168 from pkliczewski/master
+* add missing labels
+* Networked VM e2e tests
+* Merge pull request #169 from masayag/update_readme
+* Update operator resources installation
+* Merge pull request #167 from jakub-dzon/master
+* Fixing possible panic while accessing placement policy
+* Merge pull request #166 from masayag/add_template_namespace
+* Add template namespace label to the created VM
+* Merge pull request #152 from jakub-dzon/basic-e2e-test
+* Basic e2e tests framework framework package has been based on https://github.com/kubevirt/containerized-data-importer/blob/master/tests/framework/framework.go
+* Merge pull request #161 from jakub-dzon/issue-156
+* Generating clients in build Fixes #156
+* Generating clients in build Fixes #156
+* Merge pull request #162 from masayag/valid_condition
+* Set reason for failed Valid condition
+* Merge pull request #158 from pkliczewski/master
+* labels: add missing labels
+* Merge pull request #27 from machacekondra/test
+* Merge pull request #155 from masayag/release-v0.0.1
+* Merge pull request #157 from masayag/remove_useless_condition
+* Remove UpdatingSourceVM reason
+* Use ocp-4.3
+* Removed superfluous config and providers
+* Add tests
+
+Bugs:
+* Merge pull request #188 from pkliczewski/master
+* add vmimportconfig CRD to generator
+* Merge pull request #186 from masayag/build_operator
+* Merge pull request #187 from machacekondra/renamek8stest
+* Rename kubevirtci cluster as per latest changes
+* Build operator by 'make docker-build'
+* Merge pull request #185 from masayag/remove_manifests
+* Remove manifests for un-released version
+* Merge pull request #182 from jakub-dzon/func-tests-docs
+* Functional testing documentation
+* Merge pull request #177 from masayag/csv_generator
+* Merge pull request #181 from machacekondra/kubevirtci
+* Add CSV Generator
+* Merge pull request #179 from jakub-dzon/issue-176
+* Use master of kubevirtci repo for tests
+* Merge pull request #178 from machacekondra/installimageio
+* Adding owner reference to temporary secret and config map. Added functional test for import cancellation. Fixes #176
+* Install fakeovirt and imageio during test
+* Merge pull request #159 from machacekondra/fixtest
+* Use kubevirtci project for tests
+* Merge pull request #175 from jakub-dzon/issue-160
+* e2e check for the change
+* Adding tablet input device when VNC is enabled
+* Merge pull request #170 from jakub-dzon/e2e-vm-with-net
+* Merge pull request #174 from jakub-dzon/extract-os-finder
+* Extracted OS Finder In preparations for fixing #160
+* Updated fakeovirt image
+* Merge pull request #172 from masayag/use_vnic_profiles_src_map
+* Use Vnic Profile as source mapping
+* Merge pull request #171 from masayag/use_vnic_profile_id
+* Use vNIC Profile as source network mappings for oVirt
+* Merge pull request #168 from pkliczewski/master
+* add missing labels
+* Networked VM e2e tests
+* Merge pull request #169 from masayag/update_readme
+* Update operator resources installation
+* Merge pull request #167 from jakub-dzon/master
+* Fixing possible panic while accessing placement policy
+* Merge pull request #166 from masayag/add_template_namespace
+* Add template namespace label to the created VM
+* Merge pull request #152 from jakub-dzon/basic-e2e-test
+* Basic e2e tests framework framework package has been based on https://github.com/kubevirt/containerized-data-importer/blob/master/tests/framework/framework.go
+* Merge pull request #161 from jakub-dzon/issue-156
+* Generating clients in build Fixes #156
+* Generating clients in build Fixes #156
+* Merge pull request #162 from masayag/valid_condition
+* Set reason for failed Valid condition
+* Merge pull request #158 from pkliczewski/master
+* labels: add missing labels
+* Merge pull request #27 from machacekondra/test
+* Merge pull request #155 from masayag/release-v0.0.1
+* Merge pull request #157 from masayag/remove_useless_condition
+* Remove UpdatingSourceVM reason
+* Use ocp-4.3
+* Removed superfluous config and providers
+* Add tests
 
 Docs:
-* docs: add design documents
-* Add README
+* Merge pull request #188 from pkliczewski/master
+* add vmimportconfig CRD to generator
+* Merge pull request #186 from masayag/build_operator
+* Merge pull request #187 from machacekondra/renamek8stest
+* Rename kubevirtci cluster as per latest changes
+* Build operator by 'make docker-build'
+* Merge pull request #185 from masayag/remove_manifests
+* Remove manifests for un-released version
+* Merge pull request #182 from jakub-dzon/func-tests-docs
+* Functional testing documentation
+* Merge pull request #177 from masayag/csv_generator
+* Merge pull request #181 from machacekondra/kubevirtci
+* Add CSV Generator
+* Merge pull request #179 from jakub-dzon/issue-176
+* Use master of kubevirtci repo for tests
+* Merge pull request #178 from machacekondra/installimageio
+* Adding owner reference to temporary secret and config map. Added functional test for import cancellation. Fixes #176
+* Install fakeovirt and imageio during test
+* Merge pull request #159 from machacekondra/fixtest
+* Use kubevirtci project for tests
+* Merge pull request #175 from jakub-dzon/issue-160
+* e2e check for the change
+* Adding tablet input device when VNC is enabled
+* Merge pull request #170 from jakub-dzon/e2e-vm-with-net
+* Merge pull request #174 from jakub-dzon/extract-os-finder
+* Extracted OS Finder In preparations for fixing #160
+* Updated fakeovirt image
+* Merge pull request #172 from masayag/use_vnic_profiles_src_map
+* Use Vnic Profile as source mapping
+* Merge pull request #171 from masayag/use_vnic_profile_id
+* Use vNIC Profile as source network mappings for oVirt
+* Merge pull request #168 from pkliczewski/master
+* add missing labels
+* Networked VM e2e tests
+* Merge pull request #169 from masayag/update_readme
+* Update operator resources installation
+* Merge pull request #167 from jakub-dzon/master
+* Fixing possible panic while accessing placement policy
+* Merge pull request #166 from masayag/add_template_namespace
+* Add template namespace label to the created VM
+* Merge pull request #152 from jakub-dzon/basic-e2e-test
+* Basic e2e tests framework framework package has been based on https://github.com/kubevirt/containerized-data-importer/blob/master/tests/framework/framework.go
+* Merge pull request #161 from jakub-dzon/issue-156
+* Generating clients in build Fixes #156
+* Generating clients in build Fixes #156
+* Merge pull request #162 from masayag/valid_condition
+* Set reason for failed Valid condition
+* Merge pull request #158 from pkliczewski/master
+* labels: add missing labels
+* Merge pull request #27 from machacekondra/test
+* Merge pull request #155 from masayag/release-v0.0.1
+* Merge pull request #157 from masayag/remove_useless_condition
+* Remove UpdatingSourceVM reason
+* Use ocp-4.3
+* Removed superfluous config and providers
+* Add tests

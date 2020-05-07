@@ -17,10 +17,10 @@ TARGET_NAMESPACE=YOUR_DESIRED_NAMESPACE make gen-manifests
 
 Deploy vm-import-operator resources:
 ```bash
-kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.1/v2v_v1alpha1_resourcemapping_crd.yaml
-kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.1/v2v_v1alpha1_virtualmachineimport_crd.yaml
-kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.1/config_map.yaml
-kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.1/operator.yaml
+kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.2/v2v_v1alpha1_resourcemapping_crd.yaml
+kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.2/v2v_v1alpha1_virtualmachineimport_crd.yaml
+kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.2/config_map.yaml
+kubectl apply -f https://github.com/kubevirt/vm-import-operator/releases/download/v0.0.2/operator.yaml
 ```
 
 # Import virtual machine from oVirt
@@ -142,10 +142,10 @@ kubectl logs import-vm-oprator-xyz
 # Development
 ### After cloning the repository, deploy vm-import-operator resources:
 ```bash
-kubectl apply -f manifests/vm-import-operator/v0.0.1/v2v_v1alpha1_resourcemapping_crd.yaml
-kubectl apply -f manifests/vm-import-operator/v0.0.1/v2v_v1alpha1_virtualmachineimport_crd.yaml
-kubectl apply -f manifests/vm-import-operator/v0.0.1/config_map.yaml
-kubectl apply -f manifests/vm-import-operator/v0.0.1/operator.yaml
+kubectl apply -f manifests/vm-import-operator/v0.0.2/v2v_v1alpha1_resourcemapping_crd.yaml
+kubectl apply -f manifests/vm-import-operator/v0.0.2/v2v_v1alpha1_virtualmachineimport_crd.yaml
+kubectl apply -f manifests/vm-import-operator/v0.0.2/config_map.yaml
+kubectl apply -f manifests/vm-import-operator/v0.0.2/operator.yaml
 # since operator.yaml deploys the operator, remove it to use local one
 kubectl delete deployment -n kubevirt-hyperconverged vm-import-operator
 ```
